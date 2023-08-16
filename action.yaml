@@ -77,7 +77,7 @@ runs:
         fi
 
          if [ ! -z "${{ inputs.working-dir }}" ]; then
-          cd java
+          cd ${{ inputs.workind-dir }}
         fi
         mvn package com.google.cloud.tools:jib-maven-plugin:3.3.2:build \
         -Djib.to.image=${{ inputs.REGISTRY }}/${{ steps.downcase.outputs.lowercase }}:${{ inputs.tag-name }} \
