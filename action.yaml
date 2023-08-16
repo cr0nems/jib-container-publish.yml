@@ -76,8 +76,8 @@ runs:
           MAIN_CLASS_ARGS="-Djib.container.mainClass=${{ inputs.main-class }}"
         fi
 
-         if [ -n "${{ inputs.workind-dir }}" ]; then
-          cd "${{ inputs.workind-dir }}"
+         if [ -n $inputs.working-dir ]; then
+          cd ${{ inputs.workind-dir }}
         fi
         mvn package com.google.cloud.tools:jib-maven-plugin:3.3.2:build \
         -Djib.to.image=${{ inputs.REGISTRY }}/${{ steps.downcase.outputs.lowercase }}:${{ inputs.tag-name }} \
