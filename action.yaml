@@ -76,7 +76,7 @@ runs:
           MAIN_CLASS_ARGS="-Djib.container.mainClass=${{ inputs.main-class }}"
         fi
         if [ ! -z "${{ inputs.working-dir }}" ]; then
-          cd $inputs.working-dir
+          cd ${{ inputs.working-dir}}
         fi
         
         mvn package com.google.cloud.tools:jib-maven-plugin:3.3.2:build \
